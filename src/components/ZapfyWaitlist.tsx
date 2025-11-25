@@ -254,13 +254,12 @@ export function ZapfyWaitlist(): ReactElement {
     
     try {
       const { error } = await supabase
-        .from('leads')
+        .from('waitlist')
         .insert([
           {
             email: email,
-            name: name, // Now using the name from the form
-            phone: null, // Campo opcional na waitlist
-            source: 'waitlist'
+            name: name,
+            phone: null
           }
         ]);
 

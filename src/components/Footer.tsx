@@ -1,6 +1,74 @@
 import zapfyLogo from "@/assets/zapfy-logo.png";
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { z } from 'zod';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+
+const contactSchema = z.object({
+  email: z.string()
+    .trim()
+    .email({ message: "Email inválido" })
+    .max(255, { message: "Email muito longo" }),
+  question: z.string()
+    .trim()
+    .min(10, { message: "Escreva pelo menos 10 caracteres" })
+    .max(1000, { message: "Máximo de 1000 caracteres" })
+});
 
 const Footer = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+  const [question, setQuestion] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Validar dados
+      const validated = contactSchema.parse({ email, question });
+      
+      setIsSubmitting(true);
+      
+      // Inserir no banco de dados
+      const { error } = await supabase
+        .from('contacts')
+        .insert([{
+          email: validated.email,
+          question: validated.question
+        }]);
+      
+      if (error) throw error;
+      
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em breve.",
+      });
+      
+      // Limpar formulário
+      setEmail('');
+      setQuestion('');
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Erro no formulário",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Erro ao enviar",
+          description: "Tente novamente mais tarde.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <footer id="sobre" className="bg-background border-t border-border/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -51,20 +119,35 @@ const Footer = () => {
             </h3>
             <div className="space-y-3 text-sm text-muted-foreground">
               <p>
-                Tem dúvidas? Entre em contato conosco!
+                Tem dúvidas? Deixe seu e-mail que entraremos em contato:
               </p>
-              <div className="space-y-2">
-                <p>Email: contato@zapfy.com.br</p>
-                <p>Suporte: suporte@zapfy.com.br</p>
-              </div>
-              <div className="pt-4">
-                <a 
-                  href="/waitlist" 
-                  className="inline-flex items-center justify-center px-4 py-2 text-sm text-white bg-gradient-to-r from-primary to-secondary rounded-full hover:shadow-lg transition-all duration-300 hover:shadow-primary/25"
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <Input
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                  className="bg-background"
+                />
+                <Textarea
+                  placeholder="Escreva sua dúvida aqui..."
+                  value={question}
+                  onChange={(e) => setQuestion(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                  rows={4}
+                  className="bg-background resize-none"
+                />
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all duration-300"
                 >
-                  Entrar na Lista de Espera
-                </a>
-              </div>
+                  {isSubmitting ? 'Enviando...' : 'Enviar'}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
