@@ -1,12 +1,20 @@
 import { GraduationCap, Building2, Users, Heart } from 'lucide-react';
 import { useState } from 'react';
-import AskQuestionModal from '@/components/AskQuestionModal';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 
 const SchoolSection = () => {
-  const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
-  const handleQuestionClick = () => {
-    setIsQuestionModalOpen(true);
+  const handleSchoolClick = () => {
+    setIsAlertOpen(true);
   };
   return (
     <section className="section-padding bg-gradient-to-r from-primary/5 to-secondary/5 relative overflow-hidden">
@@ -86,7 +94,7 @@ const SchoolSection = () => {
                 e faça parte da revolução da educação financeira no Brasil. É simples, é rápido, é transformador.
               </p>
               
-              <button onClick={handleQuestionClick} className="btn-hero mx-auto block">
+              <button onClick={handleSchoolClick} className="btn-hero mx-auto block">
                 Quero Zapfy na Minha Escola
               </button>
               
@@ -105,10 +113,35 @@ const SchoolSection = () => {
         </div>
       </div>
       
-      <AskQuestionModal 
-        isOpen={isQuestionModalOpen} 
-        onClose={() => setIsQuestionModalOpen(false)} 
-      />
+      <AlertDialog open={isAlertOpen} onOpenChange={setIsAlertOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <GraduationCap className="w-6 h-6 text-primary" />
+              Zapfy para Escolas - Em Breve
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-base space-y-3 pt-2">
+              <p>
+                Obrigado pelo seu interesse! 🎉
+              </p>
+              <p>
+                Atualmente, a <strong>Zapfy está disponível exclusivamente para famílias</strong>. 
+                Estamos desenvolvendo uma versão completa para escolas com gestão de turmas, 
+                relatórios pedagógicos e alinhamento total com a BNCC.
+              </p>
+              <p>
+                <strong>Quer ser avisado quando lançarmos?</strong><br />
+                Entre em contato conosco pelo email: <span className="text-primary font-semibold">escolas@zapfy.com.br</span>
+              </p>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction className="bg-primary hover:bg-primary/90">
+              Entendi
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 };
