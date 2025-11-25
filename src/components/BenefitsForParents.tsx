@@ -2,17 +2,17 @@ import { BarChart3, Heart, Smartphone } from 'lucide-react';
 import { SectionCarousel } from '@/components/ui/SectionCarousel';
 const BenefitsForParents = () => {
   const benefits = [{
-    icon: <BarChart3 className="w-7 h-7 text-white" />,
-    title: 'Acompanhamento Completo',
-    description: 'Relatórios simples e intuitivos mostram o progresso do seu filho, destacando conquistas e áreas de melhoria.'
-  }, {
     icon: <Heart className="w-7 h-7 text-white" />,
-    title: 'Tranquilidade Total',
-    description: 'Content educativo confiável, desenvolvido por especialistas em educação financeira e psicologia infantil.'
+    title: 'Momentos em Família',
+    description: 'Missões especiais para fazer juntos: montar um orçamento, planejar uma compra, conversar sobre sonhos. Educação que une, não separa.'
+  }, {
+    icon: <BarChart3 className="w-7 h-7 text-white" />,
+    title: 'Você Também Aprende',
+    description: 'Dicas exclusivas para pais em cada etapa. Descubra como falar de dinheiro de forma leve e como ser o melhor exemplo financeiro.'
   }, {
     icon: <Smartphone className="w-7 h-7 text-white" />,
-    title: '100% Digital',
-    description: 'Experiência completamente digital, sem necessidade de cartões físicos, kits ou materiais adicionais.'
+    title: 'Progresso Visível',
+    description: 'Veja em tempo real o que seu filho está aprendendo. Comemore cada conquista e identifique áreas de melhoria juntos.'
   }];
   const benefitFeatures = [['Dashboard personalizado', 'Relatórios semanais', 'Métricas de progresso'], ['Conteúdo aprovado por especialistas', 'Ambiente seguro', 'Sem riscos financeiros'], ['Acesso via app', 'Sem custos extras', 'Disponível 24/7']];
   return <section className="section-padding relative overflow-hidden">
@@ -25,14 +25,14 @@ const BenefitsForParents = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-              Benefícios para{' '}
+              Aprenda{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                os Pais
+                Junto com Seu Filho
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tenha controle total sobre a educação financeira do seu filho com ferramentas 
-              pensadas especialmente para facilitar o acompanhamento dos pais.
+              <strong>93% dos pais</strong> dizem que aprender sobre finanças com os filhos fortalece os laços familiares. 
+              Na Zapfy, você não só supervisiona — você participa da jornada, ensina pelo exemplo e cria memórias valiosas.
             </p>
           </div>
           
@@ -42,11 +42,27 @@ const BenefitsForParents = () => {
             
           </div>
           
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-foreground px-6 py-3 rounded-full">
+          <div className="mt-16 space-y-8">
+            <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/20 max-w-2xl mx-auto">
+              <p className="text-base text-muted-foreground italic mb-3">
+                "Meu filho de 10 anos me perguntou se vale a pena comprar um brinquedo parcelado. 
+                Fiquei em choque — e super orgulhosa!"
+              </p>
+              <p className="text-sm font-montserrat font-semibold text-primary">
+                — Paula, mãe do Miguel, após 3 semanas usando Zapfy
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <button className="btn-hero">
+                Experimente Ensinar Junto
+              </button>
+            </div>
+            
+            <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary-foreground px-6 py-3 rounded-full mx-auto">
               <Heart className="w-5 h-5" />
               <span className="font-montserrat font-semibold">
-                Mais de 95% dos pais relatam resultados rápidos e aparentes
+                95% dos pais notam mudanças positivas em menos de 1 mês
               </span>
             </div>
           </div>

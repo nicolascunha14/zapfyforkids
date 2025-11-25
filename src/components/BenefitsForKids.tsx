@@ -6,18 +6,18 @@ const BenefitsForKids = () => {
   const benefits = [
     {
       icon: <Gamepad2 className="w-6 h-6 text-white" />,
-      title: 'Experiência de Jogo',
-      description: 'Interface divertida que parece um jogo, mantendo as crianças engajadas e motivadas a aprender.'
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-white" />,
-      title: 'Lições Curtas',
-      description: 'Conteúdo em formato de micro-aprendizado, perfeito para o tempo de atenção das crianças.'
+      title: 'É Como um Videogame!',
+      description: 'Missões empolgantes, desafios progressivos e personagens cativantes. Seu filho nem vai perceber que está aprendendo.'
     },
     {
       icon: <Gift className="w-6 h-6 text-white" />,
-      title: 'Sistema de Recompensas',
-      description: 'Conquistas e recompensas virtuais que celebram cada progresso e mantêm a motivação.'
+      title: 'Conquistas e Badges',
+      description: 'Cada avanço é celebrado com recompensas virtuais, evolução do personagem e troféus especiais. Motivação garantida!'
+    },
+    {
+      icon: <Clock className="w-6 h-6 text-white" />,
+      title: 'Aprende no Seu Ritmo',
+      description: 'Micro-lições de 5-10 minutos que respeitam a atenção das crianças. Aprendizado leve, sem pressão, só diversão.'
     }
   ];
 
@@ -34,14 +34,15 @@ const BenefitsForKids = () => {
           <div className="lg:hidden space-y-8">
             <div className="space-y-6 text-center">
               <h2 className="text-2xl md:text-3xl font-montserrat font-bold px-4">
-                Diversão garantida{' '}
+                Aprender Sobre Dinheiro{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  para as Crianças
+                  Nunca Foi Tão Divertido!
                 </span>
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed px-4">
-                Transformamos o aprendizado sobre dinheiro em uma aventura emocionante, 
-                onde cada lição é uma nova descoberta e cada conquista é celebrada.
+                Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
+                coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
+                que vão usar pra vida toda. É viciante, é educativo, é transformador.
               </p>
             </div>
             
@@ -61,8 +62,8 @@ const BenefitsForKids = () => {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Crianças passam em média <strong>15 minutos diários</strong> aprendendo 
-                de forma natural e divertida
+                Crianças passam <strong>15 minutos diários</strong> aprendendo — 
+                e pedem para fazer mais! Esse é o poder da gamificação bem feita.
               </p>
             </div>
           </div>
@@ -72,14 +73,15 @@ const BenefitsForKids = () => {
             <div className="space-y-8 col-span-2">
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-                  Diversão garantida{' '}
+                  Aprender Sobre Dinheiro{' '}
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    para as Crianças
+                    Nunca Foi Tão Divertido!
                   </span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Transformamos o aprendizado sobre dinheiro em uma aventura emocionante, 
-                  onde cada lição é uma nova descoberta e cada conquista é celebrada.
+                  Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
+                  coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
+                  que vão usar pra vida toda. É viciante, é educativo, é transformador.
                 </p>
               </div>
               
@@ -97,8 +99,8 @@ const BenefitsForKids = () => {
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Crianças passam em média <strong>15 minutos diários</strong> aprendendo 
-                  de forma natural e divertida
+                  Crianças passam <strong>15 minutos diários</strong> aprendendo — 
+                  e pedem para fazer mais! Esse é o poder da gamificação bem feita.
                 </p>
               </div>
             </div>

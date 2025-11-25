@@ -1,4 +1,4 @@
-import { GraduationCap, Building2, Users } from 'lucide-react';
+import { GraduationCap, Building2, Users, Heart } from 'lucide-react';
 import { useState } from 'react';
 import AskQuestionModal from '@/components/AskQuestionModal';
 
@@ -26,16 +26,17 @@ const SchoolSection = () => {
             </div>
             
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-              Futuro Escolar da{' '}
+              Preparando Uma Geração{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Zapfy
+                Financeiramente Sustentável
               </span>
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Estamos desenvolvendo soluções específicas para escolas, mas nosso foco atual 
-              é proporcionar a melhor experiência para famílias que querem educar seus filhos 
-              financeiramente em casa.
+              Imagine o impacto de ensinar educação financeira para milhares de alunos: 
+              futuros adultos conscientes, preparados e capazes de construir um Brasil mais próspero. 
+              Estamos trazendo a Zapfy para as escolas — de forma fácil, alinhada à BNCC e 
+              <strong> gratuita para instituições públicas</strong>.
             </p>
           </div>
           
@@ -44,29 +45,29 @@ const SchoolSection = () => {
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto">
                 <Building2 className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-montserrat font-semibold">Para Escolas</h3>
+              <h3 className="font-montserrat font-semibold">Plug & Play para Professores</h3>
               <p className="text-sm text-muted-foreground">
-                Versão educacional com gestão de turmas e relatórios pedagógicos
+                Plataforma pronta para uso: gestão de turmas, relatórios automáticos e zero trabalho extra
               </p>
             </div>
             
             <div className="space-y-4">
               <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mx-auto">
-                <Users className="w-6 h-6 text-secondary" />
+                <GraduationCap className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="font-montserrat font-semibold">Para Famílias</h3>
+              <h3 className="font-montserrat font-semibold">Alinhado à BNCC</h3>
               <p className="text-sm text-muted-foreground">
-                Disponível agora! Experiência personalizada para cada criança
+                Conteúdo totalmente adaptado às competências da Base Nacional Comum Curricular
               </p>
             </div>
             
             <div className="space-y-4">
               <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mx-auto">
-                <GraduationCap className="w-6 h-6 text-accent-foreground" />
+                <Heart className="w-6 h-6 text-accent-foreground" />
               </div>
-              <h3 className="font-montserrat font-semibold">BNCC Alinhado</h3>
+              <h3 className="font-montserrat font-semibold">Gratuito para Escolas Públicas</h3>
               <p className="text-sm text-muted-foreground">
-                Conteúdo seguindo diretrizes curriculares nacionais
+                Nosso compromisso com educação inclusiva: acesso gratuito para instituições públicas de ensino
               </p>
             </div>
           </div>
@@ -76,25 +77,29 @@ const SchoolSection = () => {
               <div className="flex items-center justify-center gap-2">
                 <div className="w-3 h-3 bg-accent rounded-full animate-pulse" />
                 <span className="font-montserrat font-semibold text-accent-foreground">
-                  Parcerias Educacionais
+                  Transforme sua escola hoje
                 </span>
               </div>
               
-              <p className="text-muted-foreground text-center">
-                Interessado em implementar a Zapfy na sua escola? 
-                Tire suas dúvidas sobre parcerias e implementação.
+              <p className="text-muted-foreground text-center max-w-xl mx-auto">
+                Você é gestor, coordenador ou professor? Leve a Zapfy para sua instituição 
+                e faça parte da revolução da educação financeira no Brasil. É simples, é rápido, é transformador.
               </p>
               
-              <button onClick={handleQuestionClick} className="btn-outline mx-auto block">
-                Alguma Dúvida?
+              <button onClick={handleQuestionClick} className="btn-hero mx-auto block">
+                Quero Zapfy na Minha Escola
               </button>
+              
+              <p className="text-xs text-muted-foreground text-center">
+                Solicite uma demonstração gratuita ou tire suas dúvidas com nossa equipe
+              </p>
             </div>
           </div>
           
           <div className="text-sm text-muted-foreground">
             <p>
-              <strong>Hoje:</strong> Exclusivo para famílias • 
-              <strong> Futuro:</strong> Expandindo para escolas e instituições
+              <strong>Hoje:</strong> Disponível para famílias • 
+              <strong> Em breve:</strong> Expandindo para escolas públicas e privadas
             </p>
           </div>
         </div>

@@ -5,18 +5,18 @@ const AboutZapfy = () => {
   const sections = [
     {
       icon: <BookOpen className="w-8 h-8 text-white" />,
-      title: 'Formação Estruturada',
-      description: 'Metodologia baseada em valores sólidos e disciplina, desenvolvendo liderança e responsabilidade financeira desde cedo.'
+      title: 'Educação Prática',
+      description: 'Conceitos financeiros reais traduzidos para a linguagem das crianças. Sem termos complicados, só aprendizado que fica pra vida.'
     },
     {
       icon: <Shield className="w-8 h-8 text-white" />,
-      title: 'Valores & Princípios',
-      description: 'Ensinamos ética, responsabilidade e disciplina financeira através de experiências práticas e seguras.'
+      title: 'Ambiente Seguro',
+      description: 'Seu filho aprende sem riscos: sem cartões reais, sem compras, sem exposição. Apenas diversão educativa com total controle dos pais.'
     },
     {
       icon: <Trophy className="w-8 h-8 text-white" />,
-      title: 'Liderança do Futuro',
-      description: 'Formamos jovens protagonistas com mentalidade empreendedora e visão estratégica para o sucesso financeiro.'
+      title: 'Resultados Reais',
+      description: 'Em 30 dias, você verá mudanças: crianças fazendo perguntas inteligentes sobre dinheiro e tomando decisões mais conscientes.'
     }
   ];
 
@@ -31,17 +31,17 @@ const AboutZapfy = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-              Formando os{' '}
+              Criado por{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Líderes Financeiros do Amanhã
+                Pais para Pais
               </span>
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              A Zapfy é o ecossistema completo de formação de líderes financeiros jovens. 
-              Desenvolvemos disciplina, responsabilidade e visão empreendedora através de 
-              uma metodologia que combina valores sólidos com inovação tecnológica, 
-              preparando seus filhos para se tornarem protagonistas do próprio sucesso financeiro.
+              Sabemos que você quer ensinar seu filho sobre dinheiro, mas não sabe por onde começar. 
+              A Zapfy nasceu dessa mesma dor: pais que queriam preparar seus filhos para o futuro financeiro, 
+              mas encontravam apenas conteúdo chato e inacessível. Criamos uma solução simples, divertida 
+              e que realmente funciona — construída ouvindo centenas de famílias reais como a sua.
             </p>
           </div>
           
@@ -53,9 +53,18 @@ const AboutZapfy = () => {
               <div className="w-3 h-3 bg-secondary rounded-full animate-pulse delay-100" />
               <div className="w-3 h-3 bg-accent rounded-full animate-pulse delay-200" />
             </div>
-            <p className="text-lg font-montserrat font-semibold text-center">
-              "Formando jovens líderes com disciplina, visão e responsabilidade para liderar o futuro financeiro"
+            <p className="text-lg font-montserrat font-semibold text-center mb-2">
+              "Finalmente encontrei algo que meu filho QUER fazer!"
             </p>
+            <p className="text-sm text-muted-foreground text-center">
+              — Mariana, mãe de Lucas (9 anos) e Sofia (12 anos)
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <button className="btn-outline">
+              Veja Como Funciona
+            </button>
           </div>
         </div>
       </div>
