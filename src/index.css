@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Zapfy Design System - Educação Financeira Gamificada */
+
+@layer base {
+  :root {
+    /* Zapfy Brand Colors */
+    --primary: 216 100% 62%; /* #3F7FFF - Azul Zapfy */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 156 73% 66%; /* #6EE7B7 - Verde Menta */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --accent: 48 96% 76%; /* #FCD34D - Amarelo Moeda */
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    /* System Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 216 100% 62%;
+    
+    --radius: 1rem;
+    
+    /* Zapfy Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(216 100% 62%), hsl(156 73% 66%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-accent: linear-gradient(90deg, hsl(48 96% 76%), hsl(156 73% 66%));
+    
+    /* Zapfy Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(216 100% 62% / 0.15);
+    --shadow-card: 0 10px 30px -10px hsl(216 100% 62% / 0.2);
+    --shadow-floating: 0 20px 40px -12px hsl(216 100% 62% / 0.25);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 216 100% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217.2 32.6% 17.5%;  
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-nunito;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  /* Zapfy Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground font-montserrat font-semibold px-8 py-4 rounded-full shadow-[var(--shadow-floating)] hover:shadow-[var(--shadow-card)] transform hover:scale-105 transition-[var(--transition-bounce)];
+  }
+  
+  .btn-secondary {
+    @apply bg-accent text-accent-foreground font-montserrat font-semibold px-6 py-3 rounded-full shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transform hover:scale-105 transition-[var(--transition-bounce)];
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent font-montserrat font-semibold px-6 py-3 rounded-full hover:bg-primary hover:text-primary-foreground transform hover:scale-105 transition-[var(--transition-bounce)];
+  }
+  
+  /* Zapfy Card Styles */
+  .card-zapfy {
+    @apply bg-gradient-to-br from-background to-muted/50 rounded-2xl shadow-[var(--shadow-card)] border border-border/50 p-6 hover:shadow-[var(--shadow-floating)] transition-[var(--transition-smooth)];
+  }
+  
+  /* Zapfy Animation Utilities */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Zapfy Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-zapfy {
+    @apply max-w-7xl mx-auto;
+  }
+}
