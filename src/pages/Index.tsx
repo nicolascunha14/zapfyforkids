@@ -4,6 +4,7 @@ import BenefitsForParents from '@/components/BenefitsForParents';
 import BenefitsForKids from '@/components/BenefitsForKids';
 import SchoolSection from '@/components/SchoolSection';
 import CtaSection from '@/components/CtaSection';
+import DownloadGuideSection from '@/components/DownloadGuideSection';
 import Footer from '@/components/Footer';
 import { Navbar1 } from '@/components/ui/navbar-1';
 
@@ -26,6 +27,7 @@ const Index = () => {
       <section id="schools">
         <SchoolSection />
       </section>
+      <DownloadGuideSection />
       <CtaSection />
       <Footer />
     </main>
