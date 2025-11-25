@@ -50,12 +50,11 @@ const AccessFormModal = ({ isOpen, onClose }: AccessFormModalProps) => {
     
     try {
       const { error } = await supabase
-        .from('leads')
+        .from('waitlist')
         .insert({
           name: data.fullName,
           email: data.email,
-          phone: data.phone,
-          source: 'landing_page'
+          phone: data.phone
         });
 
       if (error) {

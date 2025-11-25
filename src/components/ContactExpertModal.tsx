@@ -42,12 +42,11 @@ const ContactExpertModal = ({ isOpen, onClose }: ContactExpertModalProps) => {
     
     try {
       const { error } = await supabase
-        .from('leads')
+        .from('waitlist')
         .insert({
-          name: '', // Nome vazio pois só coletamos email
+          name: null,
           email: data.email,
-          phone: '', // Telefone vazio
-          source: 'contact_expert'
+          phone: null
         });
 
       if (error) {
