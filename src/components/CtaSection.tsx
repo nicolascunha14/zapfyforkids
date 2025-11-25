@@ -29,20 +29,20 @@ const CtaSection = () => {
           <div className="space-y-6">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Sparkles className="w-6 h-6" />
-              <span className="font-montserrat font-semibold text-sm uppercase tracking-wide opacity-90">
+              <span className="font-montserrat font-semibold text-sm uppercase tracking-wide text-white">
                 Transforme o Futuro Financeiro do Seu Filho
               </span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold leading-tight text-primary lg:text-5xl">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold leading-tight text-white lg:text-5xl">
               Está na Hora de{' '}
-              <span className="bg-white/90 text-primary px-2 py-1 rounded-lg inline-block">
+              <span className="text-accent">
                 Transformar
               </span>{' '}
               o Futuro!
             </h2>
             
-            <p className="text-lg md:text-xl opacity-95 leading-relaxed max-w-2xl mx-auto text-foreground/90">
+            <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-white/90">
               Junte-se a mais de 10.000 famílias que já deram o primeiro passo para criar 
               filhos financeiramente conscientes, preparados e confiantes. A jornada começa agora!
             </p>
@@ -51,7 +51,7 @@ const CtaSection = () => {
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-3 text-left">
                 <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="opacity-90 text-black">{benefit}</span>
+                <span className="text-white">{benefit}</span>
               </div>)}
           </div>
           
@@ -65,23 +65,23 @@ const CtaSection = () => {
                 </span>
               </button>
               
-              <button onClick={handleQuestionClick} className="border-2 border-white/30 bg-white/10 backdrop-blur-sm font-montserrat px-6 py-3 rounded-full hover:bg-white/20 transition-all font-semibold text-primary-foreground">
+              <button onClick={handleQuestionClick} className="border-2 border-white/30 bg-white/10 backdrop-blur-sm font-montserrat px-6 py-3 rounded-full hover:bg-white/20 transition-all font-semibold text-white">
                 Tire Suas Dúvidas
               </button>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm opacity-90">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span className="text-base text-primary-foreground">Acesso imediato</span>
+                <span className="text-base text-white">Acesso imediato</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                <span className="text-primary-foreground">Sem compromisso</span>
+                <span className="text-white">Sem compromisso</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span className="text-primary-foreground">Comece grátis</span>
+                <span className="text-white">Comece grátis</span>
               </div>
             </div>
           </div>
@@ -93,11 +93,11 @@ const CtaSection = () => {
                 animationDelay: `${i * 0.3}s`
               }} />)}
               </div>
-              <span className="font-montserrat font-semibold text-primary-foreground">
+              <span className="font-montserrat font-semibold text-white">
                 🎁 Bônus Exclusivo de Lançamento
               </span>
             </div>
-            <p className="text-sm opacity-95 text-primary-foreground">
+            <p className="text-sm text-white/90">
               As primeiras <strong>100 famílias</strong> ganham acesso vitalício ao conteúdo premium + 
               sessão de orientação com especialista em educação financeira infantil (valor R$ 297)
             </p>
