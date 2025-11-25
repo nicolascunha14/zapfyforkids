@@ -2,17 +2,12 @@ import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AccessFormModal from '@/components/AccessFormModal';
-import AskQuestionModal from '@/components/AskQuestionModal';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 const CtaSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
   const navigate = useNavigate();
   const handleAccessClick = () => {
     navigate('/waitlist');
-  };
-  const handleQuestionClick = () => {
-    setIsQuestionModalOpen(true);
   };
   const benefits = ['100% digital e gamificado', 'Funciona em qualquer dispositivo', 'Primeiras lições grátis', 'Cancele quando quiser'];
   return <section className="section-padding hero-gradient text-white relative overflow-hidden">
@@ -64,10 +59,6 @@ const CtaSection = () => {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
-              
-              <button onClick={handleQuestionClick} className="border-2 border-white/30 bg-white/10 backdrop-blur-sm font-montserrat px-6 py-3 rounded-full hover:bg-white/20 transition-all font-semibold text-white">
-                Tire Suas Dúvidas
-              </button>
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
@@ -106,7 +97,6 @@ const CtaSection = () => {
       </div>
       
       <AccessFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <AskQuestionModal isOpen={isQuestionModalOpen} onClose={() => setIsQuestionModalOpen(false)} />
     </section>;
 };
 export default CtaSection;
