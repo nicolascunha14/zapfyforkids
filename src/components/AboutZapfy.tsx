@@ -1,27 +1,20 @@
 import { BookOpen, Shield, Trophy } from 'lucide-react';
 import { SectionCarousel } from '@/components/ui/SectionCarousel';
-
 const AboutZapfy = () => {
-  const sections = [
-    {
-      icon: <BookOpen className="w-8 h-8 text-white" />,
-      title: 'Educação Prática',
-      description: 'Conceitos financeiros reais traduzidos para a linguagem das crianças. Sem termos complicados, só aprendizado que fica pra vida.'
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-white" />,
-      title: 'Ambiente Seguro',
-      description: 'Seu filho aprende sem riscos: sem cartões reais, sem compras, sem exposição. Apenas diversão educativa com total controle dos pais.'
-    },
-    {
-      icon: <Trophy className="w-8 h-8 text-white" />,
-      title: 'Resultados Reais',
-      description: 'Em 30 dias, você verá mudanças: crianças fazendo perguntas inteligentes sobre dinheiro e tomando decisões mais conscientes.'
-    }
-  ];
-
-  return (
-    <section className="section-padding bg-muted/30 relative overflow-hidden">
+  const sections = [{
+    icon: <BookOpen className="w-8 h-8 text-white" />,
+    title: 'Educação Prática',
+    description: 'Conceitos financeiros reais traduzidos para a linguagem das crianças. Sem termos complicados, só aprendizado que fica pra vida.'
+  }, {
+    icon: <Shield className="w-8 h-8 text-white" />,
+    title: 'Ambiente Seguro',
+    description: 'Seu filho aprende sem riscos: sem cartões reais, sem compras, sem exposição. Apenas diversão educativa com total controle dos pais.'
+  }, {
+    icon: <Trophy className="w-8 h-8 text-white" />,
+    title: 'Resultados Reais',
+    description: 'Em 30 dias, você verá mudanças: crianças fazendo perguntas inteligentes sobre dinheiro e tomando decisões mais conscientes.'
+  }];
+  return <section className="section-padding bg-muted/30 relative overflow-hidden">
       {/* Subtle Aurora elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 blur-3xl" />
       <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-2xl animate-pulse" />
@@ -32,9 +25,7 @@ const AboutZapfy = () => {
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
               Criado por{' '}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Pais para Pais
-              </span>
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Pais, para Pais</span>
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -68,8 +59,6 @@ const AboutZapfy = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutZapfy;
