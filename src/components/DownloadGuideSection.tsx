@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
+import DownloadConfirmationModal from './DownloadConfirmationModal';
 
 const DownloadGuideSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = '/Desafio_Free.pdf';
@@ -9,6 +13,7 @@ const DownloadGuideSection = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setIsModalOpen(true);
   };
 
   return (
@@ -29,6 +34,10 @@ const DownloadGuideSection = () => {
           Baixar grátis
         </Button>
       </div>
+      <DownloadConfirmationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };
