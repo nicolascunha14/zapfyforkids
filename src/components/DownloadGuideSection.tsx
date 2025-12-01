@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import DownloadConfirmationModal from './DownloadConfirmationModal';
+import { trackEvent } from '@/lib/analytics';
 
 const DownloadGuideSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,6 +14,13 @@ const DownloadGuideSection = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Track download event
+    trackEvent('download_guide', {
+      fileName: 'Guia_Rapido_5_Desafios_Zapfy.pdf',
+      timestamp: new Date().toISOString()
+    });
+    
     setIsModalOpen(true);
   };
 

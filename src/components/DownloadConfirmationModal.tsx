@@ -2,6 +2,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { trackEvent } from '@/lib/analytics';
 
 interface DownloadConfirmationModalProps {
   isOpen: boolean;
@@ -12,8 +13,22 @@ const DownloadConfirmationModal = ({ isOpen, onClose }: DownloadConfirmationModa
   const navigate = useNavigate();
 
   const handleGoToWaitlist = () => {
+    // Track conversion to waitlist from download modal
+    trackEvent('download_modal_to_waitlist', {
+      timestamp: new Date().toISOString()
+    });
+    
     onClose();
     navigate('/waitlist');
+  };
+
+  const handleContinue = () => {
+    // Track when user continues browsing instead of joining waitlist
+    trackEvent('download_modal_continue', {
+      timestamp: new Date().toISOString()
+    });
+    
+    onClose();
   };
 
   return (
@@ -34,7 +49,7 @@ const DownloadConfirmationModal = ({ isOpen, onClose }: DownloadConfirmationModa
           <Button onClick={handleGoToWaitlist} size="lg" className="w-full">
             Junte-se à Lista de Espera
           </Button>
-          <Button onClick={onClose} variant="outline" size="lg" className="w-full">
+          <Button onClick={handleContinue} variant="outline" size="lg" className="w-full">
             Continuar Navegando
           </Button>
         </div>
