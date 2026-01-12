@@ -31,7 +31,7 @@ const HeroSection = () => {
     <div ref={containerRef} className="relative">
       <AuroraBackground className="min-h-screen relative overflow-hidden">
         {/* Subtle particles effect */}
-        <ParticlesBackground particleCount={25} className="z-10" />
+        <ParticlesBackground particleCount={50} className="z-10" />
         
         <div className="container-zapfy section-padding relative z-20">
           <motion.div 
