@@ -38,195 +38,197 @@ const HeroSection = () => {
   };
 
   return (
-    <AuroraBackground className="min-h-screen relative overflow-hidden" ref={containerRef}>
-      {/* Parallax floating elements */}
-      <motion.div 
-        className="absolute top-20 left-[10%] w-12 h-12 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
-        style={{ y: float1Y, rotate: floatRotate1, scale: floatScale }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
-      >
-        <Star className="w-6 h-6 text-primary" />
-      </motion.div>
-      
-      <motion.div 
-        className="absolute top-32 right-[15%] w-14 h-14 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/20"
-        style={{ y: float2Y, rotate: floatRotate2, scale: floatScale }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
-      >
-        <Zap className="w-7 h-7 text-secondary" />
-      </motion.div>
-      
-      <motion.div 
-        className="absolute top-[45%] left-[5%] w-10 h-10 bg-gradient-to-br from-accent/30 to-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-accent/20"
-        style={{ y: float3Y, scale: floatScale }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
-      >
-        <Target className="w-5 h-5 text-accent-foreground" />
-      </motion.div>
-      
-      <motion.div 
-        className="absolute top-[60%] right-[8%] w-16 h-16 bg-gradient-to-br from-primary/25 to-secondary/15 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/15 rotate-12"
-        style={{ y: float4Y, rotate: floatRotate1, scale: floatScale }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.1, duration: 0.8, type: "spring" }}
-      >
-        <Coins className="w-8 h-8 text-primary" />
-      </motion.div>
-      
-      <motion.div 
-        className="absolute bottom-[25%] left-[12%] w-8 h-8 bg-gradient-to-br from-secondary/35 to-accent/25 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/25"
-        style={{ y: float5Y, scale: floatScale }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
-      >
-        <Sparkles className="w-4 h-4 text-secondary" />
-      </motion.div>
-
-      {/* Additional decorative floating orbs */}
-      <motion.div 
-        className="absolute top-[25%] right-[25%] w-4 h-4 bg-primary/40 rounded-full blur-[1px]"
-        style={{ y: float1Y }}
-        animate={{ 
-          scale: [1, 1.5, 1],
-          opacity: [0.4, 0.8, 0.4]
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
-      <motion.div 
-        className="absolute top-[70%] left-[20%] w-3 h-3 bg-secondary/50 rounded-full blur-[1px]"
-        style={{ y: float2Y }}
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.5, 0.9, 0.5]
-        }}
-        transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-      />
-      <motion.div 
-        className="absolute top-[40%] right-[5%] w-5 h-5 bg-accent/30 rounded-full blur-[2px]"
-        style={{ y: float3Y }}
-        animate={{ 
-          scale: [1, 1.4, 1],
-          opacity: [0.3, 0.7, 0.3]
-        }}
-        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-      />
-      
-      <div className="container-zapfy section-padding relative z-20">
+    <div ref={containerRef} className="relative">
+      <AuroraBackground className="min-h-screen relative overflow-hidden">
+        {/* Parallax floating elements */}
         <motion.div 
-          className="flex flex-col items-center text-center max-w-4xl mx-auto"
-          style={{ opacity }}
+          className="absolute top-20 left-[10%] w-12 h-12 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
+          style={{ y: float1Y, rotate: floatRotate1, scale: floatScale }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
         >
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <Star className="w-6 h-6 text-primary" />
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-32 right-[15%] w-14 h-14 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/20"
+          style={{ y: float2Y, rotate: floatRotate2, scale: floatScale }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
+        >
+          <Zap className="w-7 h-7 text-secondary" />
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-[45%] left-[5%] w-10 h-10 bg-gradient-to-br from-accent/30 to-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-accent/20"
+          style={{ y: float3Y, scale: floatScale }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
+        >
+          <Target className="w-5 h-5 text-accent-foreground" />
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-[60%] right-[8%] w-16 h-16 bg-gradient-to-br from-primary/25 to-secondary/15 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/15 rotate-12"
+          style={{ y: float4Y, rotate: floatRotate1, scale: floatScale }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.1, duration: 0.8, type: "spring" }}
+        >
+          <Coins className="w-8 h-8 text-primary" />
+        </motion.div>
+        
+        <motion.div 
+          className="absolute bottom-[25%] left-[12%] w-8 h-8 bg-gradient-to-br from-secondary/35 to-accent/25 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/25"
+          style={{ y: float5Y, scale: floatScale }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
+        >
+          <Sparkles className="w-4 h-4 text-secondary" />
+        </motion.div>
+
+        {/* Additional decorative floating orbs */}
+        <motion.div 
+          className="absolute top-[25%] right-[25%] w-4 h-4 bg-primary/40 rounded-full blur-[1px]"
+          style={{ y: float1Y }}
+          animate={{ 
+            scale: [1, 1.5, 1],
+            opacity: [0.4, 0.8, 0.4]
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute top-[70%] left-[20%] w-3 h-3 bg-secondary/50 rounded-full blur-[1px]"
+          style={{ y: float2Y }}
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.5, 0.9, 0.5]
+          }}
+          transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+        />
+        <motion.div 
+          className="absolute top-[40%] right-[5%] w-5 h-5 bg-accent/30 rounded-full blur-[2px]"
+          style={{ y: float3Y }}
+          animate={{ 
+            scale: [1, 1.4, 1],
+            opacity: [0.3, 0.7, 0.3]
+          }}
+          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+        />
+        
+        <div className="container-zapfy section-padding relative z-20">
+          <motion.div 
+            className="flex flex-col items-center text-center max-w-4xl mx-auto"
+            style={{ opacity }}
+          >
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <motion.div 
+                  className="flex items-center justify-center gap-2 text-primary mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  style={{ y: subtitleY }}
+                >
+                  <Sparkles className="w-5 h-5" />
+                  <span className="font-montserrat font-semibold text-sm uppercase tracking-wide">
+                    Educação Financeira que Transforma
+                  </span>
+                </motion.div>
+                
+                <motion.h1 
+                  className="text-4xl md:text-6xl lg:text-8xl font-montserrat font-bold leading-tight text-center tracking-tight mb-6 md:mb-8"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
+                  style={{ y: titleY }}
+                >
+                  <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
+                    Seu Filho Vai Pedir
+                  </span>
+                  <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground/90 to-secondary">
+                    Pra Aprender Sobre Dinheiro
+                  </span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4 mb-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.7 }}
+                  style={{ y: descY }}
+                >
+                  Ensine educação financeira do jeito certo: brincando, em família e sem complicação. 
+                  Transforme o futuro do seu filho enquanto ele se diverte como nunca.
+                </motion.p>
+              </div>
+              
               <motion.div 
-                className="flex items-center justify-center gap-2 text-primary mb-4"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                style={{ y: subtitleY }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                style={{ y: buttonY }}
               >
-                <Sparkles className="w-5 h-5" />
-                <span className="font-montserrat font-semibold text-sm uppercase tracking-wide">
-                  Educação Financeira que Transforma
-                </span>
+                <button onClick={handleAccessClick} className="btn-hero group flex items-center justify-center">
+                  Quero Ajudar Meu Filho a Aprender Brincando
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </button>
               </motion.div>
               
-              <motion.h1 
-                className="text-4xl md:text-6xl lg:text-8xl font-montserrat font-bold leading-tight text-center tracking-tight mb-6 md:mb-8"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
-                style={{ y: titleY }}
+              <motion.div 
+                className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-sm text-muted-foreground mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
-                  Seu Filho Vai Pedir
-                </span>
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground/90 to-secondary">
-                  Pra Aprender Sobre Dinheiro
-                </span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4 mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.7 }}
-                style={{ y: descY }}
-              >
-                Ensine educação financeira do jeito certo: brincando, em família e sem complicação. 
-                Transforme o futuro do seu filho enquanto ele se diverte como nunca.
-              </motion.p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+                  <span>+10.000 famílias já transformando vidas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <span>Gratuito para escolas públicas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                  <span>De 7 a 14 anos</span>
+                </div>
+              </motion.div>
             </div>
-            
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              style={{ y: buttonY }}
-            >
-              <button onClick={handleAccessClick} className="btn-hero group flex items-center justify-center">
-                Quero Ajudar Meu Filho a Aprender Brincando
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-            
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-sm text-muted-foreground mt-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-                <span>+10.000 famílias já transformando vidas</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span>Gratuito para escolas públicas</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span>De 7 a 14 anos</span>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        style={{ opacity }}
-      >
-        <span className="text-xs text-muted-foreground font-medium">Role para explorar</span>
+          </motion.div>
+        </div>
+        
+        {/* Scroll indicator */}
         <motion.div 
-          className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          style={{ opacity }}
         >
+          <span className="text-xs text-muted-foreground font-medium">Role para explorar</span>
           <motion.div 
-            className="w-1.5 h-1.5 bg-primary rounded-full"
-            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+            className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
+            animate={{ y: [0, 5, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-          />
+          >
+            <motion.div 
+              className="w-1.5 h-1.5 bg-primary rounded-full"
+              animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
-      
-      <AccessFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </AuroraBackground>
+        
+        <AccessFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </AuroraBackground>
+    </div>
   );
 };
 
