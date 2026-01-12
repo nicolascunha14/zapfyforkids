@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Star, Zap, Target, Coins } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -21,17 +21,6 @@ const HeroSection = () => {
   const descY = useTransform(scrollYProgress, [0, 1], [0, 50]);
   const buttonY = useTransform(scrollYProgress, [0, 1], [0, 30]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  
-  // Floating elements parallax
-  const float1Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const float2Y = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const float3Y = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const float4Y = useTransform(scrollYProgress, [0, 1], [0, -180]);
-  const float5Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  
-  const floatRotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
-  const floatRotate2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const floatScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   const handleAccessClick = () => {
     navigate('/waitlist');
@@ -40,86 +29,6 @@ const HeroSection = () => {
   return (
     <div ref={containerRef} className="relative">
       <AuroraBackground className="min-h-screen relative overflow-hidden">
-        {/* Parallax floating elements */}
-        <motion.div 
-          className="absolute top-20 left-[10%] w-12 h-12 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
-          style={{ y: float1Y, rotate: floatRotate1, scale: floatScale }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
-        >
-          <Star className="w-6 h-6 text-primary" />
-        </motion.div>
-        
-        <motion.div 
-          className="absolute top-32 right-[15%] w-14 h-14 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/20"
-          style={{ y: float2Y, rotate: floatRotate2, scale: floatScale }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
-        >
-          <Zap className="w-7 h-7 text-secondary" />
-        </motion.div>
-        
-        <motion.div 
-          className="absolute top-[45%] left-[5%] w-10 h-10 bg-gradient-to-br from-accent/30 to-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-accent/20"
-          style={{ y: float3Y, scale: floatScale }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
-        >
-          <Target className="w-5 h-5 text-accent-foreground" />
-        </motion.div>
-        
-        <motion.div 
-          className="absolute top-[60%] right-[8%] w-16 h-16 bg-gradient-to-br from-primary/25 to-secondary/15 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/15 rotate-12"
-          style={{ y: float4Y, rotate: floatRotate1, scale: floatScale }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, duration: 0.8, type: "spring" }}
-        >
-          <Coins className="w-8 h-8 text-primary" />
-        </motion.div>
-        
-        <motion.div 
-          className="absolute bottom-[25%] left-[12%] w-8 h-8 bg-gradient-to-br from-secondary/35 to-accent/25 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/25"
-          style={{ y: float5Y, scale: floatScale }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
-        >
-          <Sparkles className="w-4 h-4 text-secondary" />
-        </motion.div>
-
-        {/* Additional decorative floating orbs */}
-        <motion.div 
-          className="absolute top-[25%] right-[25%] w-4 h-4 bg-primary/40 rounded-full blur-[1px]"
-          style={{ y: float1Y }}
-          animate={{ 
-            scale: [1, 1.5, 1],
-            opacity: [0.4, 0.8, 0.4]
-          }}
-          transition={{ duration: 3, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute top-[70%] left-[20%] w-3 h-3 bg-secondary/50 rounded-full blur-[1px]"
-          style={{ y: float2Y }}
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.5, 0.9, 0.5]
-          }}
-          transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-        />
-        <motion.div 
-          className="absolute top-[40%] right-[5%] w-5 h-5 bg-accent/30 rounded-full blur-[2px]"
-          style={{ y: float3Y }}
-          animate={{ 
-            scale: [1, 1.4, 1],
-            opacity: [0.3, 0.7, 0.3]
-          }}
-          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-        />
-        
         <div className="container-zapfy section-padding relative z-20">
           <motion.div 
             className="flex flex-col items-center text-center max-w-4xl mx-auto"
