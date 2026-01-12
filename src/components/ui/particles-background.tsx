@@ -18,11 +18,11 @@ interface ParticlesBackgroundProps {
 }
 
 const colors = [
-  "hsl(var(--primary) / 0.4)",
-  "hsl(var(--secondary) / 0.4)",
-  "hsl(var(--accent) / 0.3)",
-  "hsl(var(--primary) / 0.25)",
-  "hsl(var(--secondary) / 0.3)",
+  "hsl(var(--primary) / 0.6)",
+  "hsl(var(--secondary) / 0.6)",
+  "hsl(var(--accent) / 0.5)",
+  "hsl(var(--primary) / 0.45)",
+  "hsl(var(--secondary) / 0.5)",
 ];
 
 const shapes: ("circle" | "square" | "triangle")[] = ["circle", "square", "triangle"];
@@ -116,7 +116,7 @@ export const ParticlesBackground = ({
             rotate: 0,
           }}
           animate={{ 
-            opacity: [0, 0.8, 0.6, 0.8, 0],
+            opacity: [0, 1, 0.85, 1, 0],
             y: [0, -30, -60, -30, 0],
             x: [0, 15, -10, 20, 0],
             scale: [0, 1, 1.1, 0.9, 0],
