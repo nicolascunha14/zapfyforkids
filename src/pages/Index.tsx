@@ -7,13 +7,11 @@ import CtaSection from '@/components/CtaSection';
 import DownloadGuideSection from '@/components/DownloadGuideSection';
 import Footer from '@/components/Footer';
 import { Navbar1 } from '@/components/ui/navbar-1';
-import ZapMascot from '@/components/ZapMascot';
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <Navbar1 />
-      <ZapMascot />
       <section id="hero">
         <HeroSection />
       </section>
