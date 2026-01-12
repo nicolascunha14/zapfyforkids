@@ -1,33 +1,151 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight, Sparkles, Star, Zap, Target, Coins } from 'lucide-react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import AccessFormModal from '@/components/AccessFormModal';
 import { AuroraBackground } from '@/components/ui/aurora-background';
-import { AnimatedText } from '@/components/ui/animated-text';
+
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Parallax transforms
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const descY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const buttonY = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  // Floating elements parallax
+  const float1Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const float2Y = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const float3Y = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const float4Y = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const float5Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  
+  const floatRotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const floatRotate2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const floatScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+
   const handleAccessClick = () => {
     navigate('/waitlist');
   };
-  return <AuroraBackground className="min-h-screen relative overflow-hidden">
-      {/* Floating elements */}
+
+  return (
+    <AuroraBackground className="min-h-screen relative overflow-hidden" ref={containerRef}>
+      {/* Parallax floating elements */}
+      <motion.div 
+        className="absolute top-20 left-[10%] w-12 h-12 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
+        style={{ y: float1Y, rotate: floatRotate1, scale: floatScale }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+      >
+        <Star className="w-6 h-6 text-primary" />
+      </motion.div>
       
+      <motion.div 
+        className="absolute top-32 right-[15%] w-14 h-14 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/20"
+        style={{ y: float2Y, rotate: floatRotate2, scale: floatScale }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
+      >
+        <Zap className="w-7 h-7 text-secondary" />
+      </motion.div>
       
+      <motion.div 
+        className="absolute top-[45%] left-[5%] w-10 h-10 bg-gradient-to-br from-accent/30 to-primary/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-accent/20"
+        style={{ y: float3Y, scale: floatScale }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
+      >
+        <Target className="w-5 h-5 text-accent-foreground" />
+      </motion.div>
       
+      <motion.div 
+        className="absolute top-[60%] right-[8%] w-16 h-16 bg-gradient-to-br from-primary/25 to-secondary/15 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/15 rotate-12"
+        style={{ y: float4Y, rotate: floatRotate1, scale: floatScale }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.1, duration: 0.8, type: "spring" }}
+      >
+        <Coins className="w-8 h-8 text-primary" />
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-[25%] left-[12%] w-8 h-8 bg-gradient-to-br from-secondary/35 to-accent/25 rounded-full flex items-center justify-center backdrop-blur-sm border border-secondary/25"
+        style={{ y: float5Y, scale: floatScale }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
+      >
+        <Sparkles className="w-4 h-4 text-secondary" />
+      </motion.div>
+
+      {/* Additional decorative floating orbs */}
+      <motion.div 
+        className="absolute top-[25%] right-[25%] w-4 h-4 bg-primary/40 rounded-full blur-[1px]"
+        style={{ y: float1Y }}
+        animate={{ 
+          scale: [1, 1.5, 1],
+          opacity: [0.4, 0.8, 0.4]
+        }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute top-[70%] left-[20%] w-3 h-3 bg-secondary/50 rounded-full blur-[1px]"
+        style={{ y: float2Y }}
+        animate={{ 
+          scale: [1, 1.3, 1],
+          opacity: [0.5, 0.9, 0.5]
+        }}
+        transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+      />
+      <motion.div 
+        className="absolute top-[40%] right-[5%] w-5 h-5 bg-accent/30 rounded-full blur-[2px]"
+        style={{ y: float3Y }}
+        animate={{ 
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.7, 0.3]
+        }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+      />
       
       <div className="container-zapfy section-padding relative z-20">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <motion.div 
+          className="flex flex-col items-center text-center max-w-4xl mx-auto"
+          style={{ opacity }}
+        >
           <div className="space-y-8">
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-2 text-primary mb-4">
+              <motion.div 
+                className="flex items-center justify-center gap-2 text-primary mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                style={{ y: subtitleY }}
+              >
                 <Sparkles className="w-5 h-5" />
                 <span className="font-montserrat font-semibold text-sm uppercase tracking-wide">
                   Educação Financeira que Transforma
                 </span>
-              </div>
+              </motion.div>
               
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-montserrat font-bold leading-tight text-center tracking-tight mb-6 md:mb-8">
+              <motion.h1 
+                className="text-4xl md:text-6xl lg:text-8xl font-montserrat font-bold leading-tight text-center tracking-tight mb-6 md:mb-8"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
+                style={{ y: titleY }}
+              >
                 <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
                   Seu Filho Vai Pedir
                 </span>
@@ -35,22 +153,39 @@ const HeroSection = () => {
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground/90 to-secondary">
                   Pra Aprender Sobre Dinheiro
                 </span>
-              </h1>
+              </motion.h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4 mb-8">
+              <motion.p 
+                className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4 mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.7 }}
+                style={{ y: descY }}
+              >
                 Ensine educação financeira do jeito certo: brincando, em família e sem complicação. 
                 Transforme o futuro do seu filho enquanto ele se diverte como nunca.
-              </p>
+              </motion.p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              style={{ y: buttonY }}
+            >
               <button onClick={handleAccessClick} className="btn-hero group flex items-center justify-center">
                 Quero Ajudar Meu Filho a Aprender Brincando
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-            </div>
+            </motion.div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-sm text-muted-foreground mt-4">
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-sm text-muted-foreground mt-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
                 <span>+10.000 famílias já transformando vidas</span>
@@ -63,12 +198,36 @@ const HeroSection = () => {
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span>De 7 a 14 anos</span>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
       
+      {/* Scroll indicator */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        style={{ opacity }}
+      >
+        <span className="text-xs text-muted-foreground font-medium">Role para explorar</span>
+        <motion.div 
+          className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <motion.div 
+            className="w-1.5 h-1.5 bg-primary rounded-full"
+            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </motion.div>
+      </motion.div>
+      
       <AccessFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </AuroraBackground>;
+    </AuroraBackground>
+  );
 };
+
 export default HeroSection;
