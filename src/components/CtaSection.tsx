@@ -3,14 +3,20 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AccessFormModal from '@/components/AccessFormModal';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/ui/scroll-animation';
+
 const CtaSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  
   const handleAccessClick = () => {
     navigate('/waitlist');
   };
+  
   const benefits = ['100% digital e gamificado', 'Funciona em qualquer dispositivo', 'Primeiras lições grátis', 'Cancele quando quiser'];
-  return <section className="section-padding hero-gradient text-white relative overflow-hidden">
+  
+  return (
+    <section className="section-padding hero-gradient text-white relative overflow-hidden">
       {/* Enhanced Aurora background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-3xl" />
       <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse" />
@@ -21,82 +27,100 @@ const CtaSection = () => {
       
       <div className="container-zapfy relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <div className="space-y-6">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-6 h-6" />
-              <span className="font-montserrat font-semibold text-sm uppercase tracking-wide text-white">
-                Transforme o Futuro Financeiro do Seu Filho
-              </span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold leading-tight text-white lg:text-5xl">
-              Está na Hora de{' '}
-              <span className="text-accent">
-                Transformar
-              </span>{' '}
-              o Futuro!
-            </h2>
-            
-            <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-white/90">
-              Junte-se a mais de 10.000 famílias que já deram o primeiro passo para criar 
-              filhos financeiramente conscientes, preparados e confiantes. A jornada começa agora!
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-3 text-left">
-                <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-white">{benefit}</span>
-              </div>)}
-          </div>
-          
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={handleAccessClick} className="relative overflow-hidden bg-white text-primary font-montserrat font-bold px-8 py-4 rounded-full shadow-[var(--shadow-floating)] hover:shadow-[var(--shadow-card)] transform hover:scale-105 transition-[var(--transition-bounce)] group">
-                <BackgroundBeams className="absolute inset-0 opacity-20" />
-                <span className="relative z-10 flex items-center justify-center">
-                  Começar Agora Gratuitamente
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          <StaggerContainer className="space-y-6">
+            <StaggerItem>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Sparkles className="w-6 h-6" />
+                <span className="font-montserrat font-semibold text-sm uppercase tracking-wide text-white">
+                  Transforme o Futuro Financeiro do Seu Filho
                 </span>
-              </button>
-            </div>
+              </div>
+            </StaggerItem>
             
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span className="text-base text-white">Acesso imediato</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                <span className="text-white">Sem compromisso</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span className="text-white">Comece grátis</span>
-              </div>
-            </div>
-          </div>
+            <StaggerItem>
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold leading-tight text-white lg:text-5xl">
+                Está na Hora de{' '}
+                <span className="text-accent">
+                  Transformar
+                </span>{' '}
+                o Futuro!
+              </h2>
+            </StaggerItem>
+            
+            <StaggerItem>
+              <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-white/90">
+                Junte-se a mais de 10.000 famílias que já deram o primeiro passo para criar 
+                filhos financeiramente conscientes, preparados e confiantes. A jornada começa agora!
+              </p>
+            </StaggerItem>
+          </StaggerContainer>
           
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{
-                animationDelay: `${i * 0.3}s`
-              }} />)}
-              </div>
-              <span className="font-montserrat font-semibold text-white">
-                🎁 Bônus Exclusivo de Lançamento
-              </span>
+          <ScrollAnimation animation="fadeUp" delay={0.2}>
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-center gap-3 text-left">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-white">{benefit}</span>
+                </div>
+              ))}
             </div>
-            <p className="text-sm text-white/90">
-              As primeiras <strong>100 famílias</strong> ganham acesso vitalício ao conteúdo premium + 
-              sessão de orientação com especialista em educação financeira infantil (valor R$ 297)
-            </p>
-          </div>
+          </ScrollAnimation>
+          
+          <ScrollAnimation animation="scale" delay={0.3}>
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onClick={handleAccessClick} className="relative overflow-hidden bg-white text-primary font-montserrat font-bold px-8 py-4 rounded-full shadow-[var(--shadow-floating)] hover:shadow-[var(--shadow-card)] transform hover:scale-105 transition-[var(--transition-bounce)] group">
+                  <BackgroundBeams className="absolute inset-0 opacity-20" />
+                  <span className="relative z-10 flex items-center justify-center">
+                    Começar Agora Gratuitamente
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </button>
+              </div>
+              
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <span className="text-base text-white">Acesso imediato</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                  <span className="text-white">Sem compromisso</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <span className="text-white">Comece grátis</span>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+          
+          <ScrollAnimation animation="blur" delay={0.4}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{
+                      animationDelay: `${i * 0.3}s`
+                    }} />
+                  ))}
+                </div>
+                <span className="font-montserrat font-semibold text-white">
+                  🎁 Bônus Exclusivo de Lançamento
+                </span>
+              </div>
+              <p className="text-sm text-white/90">
+                As primeiras <strong>100 famílias</strong> ganham acesso vitalício ao conteúdo premium + 
+                sessão de orientação com especialista em educação financeira infantil (valor R$ 297)
+              </p>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
       
       <AccessFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </section>;
+    </section>
+  );
 };
+
 export default CtaSection;

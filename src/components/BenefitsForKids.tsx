@@ -1,6 +1,7 @@
 import { Gamepad2, Clock, Gift } from 'lucide-react';
 import kidsLearningImage from '@/assets/kids-learning-finance.jpg';
 import { SectionCarousel } from '@/components/ui/SectionCarousel';
+import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/ui/scroll-animation';
 
 const BenefitsForKids = () => {
   const benefits = [
@@ -32,62 +33,30 @@ const BenefitsForKids = () => {
         <div className="max-w-6xl mx-auto">
           {/* Mobile Layout */}
           <div className="lg:hidden space-y-8">
-            <div className="space-y-6 text-center">
-              <h2 className="text-2xl md:text-3xl font-montserrat font-bold px-4">
-                Aprender Sobre Dinheiro{' '}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Nunca Foi Tão Divertido!
-                </span>
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed px-4">
-                Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
-                coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
-                que vão usar pra vida toda. É viciante, é educativo, é transformador.
-              </p>
-            </div>
-            
-            <div className="px-4">
-              <SectionCarousel items={benefits} />
-            </div>
-            
-            <div className="mx-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-4 border border-primary/20">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-                  ))}
-                </div>
-                <span className="text-sm font-montserrat font-semibold text-primary">
-                  Engajamento Alto
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Crianças passam <strong>15 minutos diários</strong> aprendendo — 
-                e pedem para fazer mais! Esse é o poder da gamificação bem feita.
-              </p>
-            </div>
-          </div>
-
-          {/* Desktop Layout */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-12 items-center">
-            <div className="space-y-8 col-span-2">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
+            <StaggerContainer className="space-y-6 text-center">
+              <StaggerItem>
+                <h2 className="text-2xl md:text-3xl font-montserrat font-bold px-4">
                   Aprender Sobre Dinheiro{' '}
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     Nunca Foi Tão Divertido!
                   </span>
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+              </StaggerItem>
+              <StaggerItem>
+                <p className="text-base text-muted-foreground leading-relaxed px-4">
                   Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
                   coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
                   que vão usar pra vida toda. É viciante, é educativo, é transformador.
                 </p>
-              </div>
-              
+              </StaggerItem>
+            </StaggerContainer>
+            
+            <ScrollAnimation animation="scale" className="px-4">
               <SectionCarousel items={benefits} />
-              
-              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 border border-primary/20 mx-auto max-w-md">
+            </ScrollAnimation>
+            
+            <ScrollAnimation animation="fadeUp" delay={0.2} className="mx-4">
+              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-4 border border-primary/20">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
@@ -103,35 +72,83 @@ const BenefitsForKids = () => {
                   e pedem para fazer mais! Esse é o poder da gamificação bem feita.
                 </p>
               </div>
+            </ScrollAnimation>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-12 items-center">
+            <div className="space-y-8 col-span-2">
+              <StaggerContainer className="space-y-6">
+                <StaggerItem>
+                  <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
+                    Aprender Sobre Dinheiro{' '}
+                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      Nunca Foi Tão Divertido!
+                    </span>
+                  </h2>
+                </StaggerItem>
+                <StaggerItem>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
+                    coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
+                    que vão usar pra vida toda. É viciante, é educativo, é transformador.
+                  </p>
+                </StaggerItem>
+              </StaggerContainer>
+              
+              <ScrollAnimation animation="scale" delay={0.1}>
+                <SectionCarousel items={benefits} />
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeUp" delay={0.2}>
+                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 border border-primary/20 mx-auto max-w-md">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
+                      ))}
+                    </div>
+                    <span className="text-sm font-montserrat font-semibold text-primary">
+                      Engajamento Alto
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Crianças passam <strong>15 minutos diários</strong> aprendendo — 
+                    e pedem para fazer mais! Esse é o poder da gamificação bem feita.
+                  </p>
+                </div>
+              </ScrollAnimation>
             </div>
             
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-floating)]">
-                <img 
-                  src={kidsLearningImage}
-                  alt="Crianças aprendendo educação financeira de forma divertida"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent" />
+            <ScrollAnimation animation="fadeRight" delay={0.3}>
+              <div className="relative">
+                <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-floating)]">
+                  <img 
+                    src={kidsLearningImage}
+                    alt="Crianças aprendendo educação financeira de forma divertida"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent" />
+                </div>
+                
+                {/* Floating game elements */}
+                <div className="absolute -top-4 -right-4 bg-accent card-zapfy p-3 float-animation">
+                  <Gamepad2 className="w-6 h-6 text-accent-foreground" />
+                </div>
+                
+                <div className="absolute -bottom-4 -left-4 bg-primary card-zapfy p-3 animate-bounce">
+                  <Gift className="w-6 h-6 text-primary-foreground" />
+                </div>
+                
+                <div className="absolute top-1/2 -right-6 bg-secondary card-zapfy p-3 pulse-slow">
+                  <Clock className="w-6 h-6 text-secondary-foreground" />
+                </div>
               </div>
-              
-              {/* Floating game elements */}
-              <div className="absolute -top-4 -right-4 bg-accent card-zapfy p-3 float-animation">
-                <Gamepad2 className="w-6 h-6 text-accent-foreground" />
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-primary card-zapfy p-3 animate-bounce">
-                <Gift className="w-6 h-6 text-primary-foreground" />
-              </div>
-              
-              <div className="absolute top-1/2 -right-6 bg-secondary card-zapfy p-3 pulse-slow">
-                <Clock className="w-6 h-6 text-secondary-foreground" />
-              </div>
-            </div>
+            </ScrollAnimation>
           </div>
 
           {/* Mobile Image */}
-          <div className="lg:hidden mt-8 px-4">
+          <ScrollAnimation animation="fadeUp" delay={0.3} className="lg:hidden mt-8 px-4">
             <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-floating)]">
               <img 
                 src={kidsLearningImage}
@@ -149,7 +166,7 @@ const BenefitsForKids = () => {
                 <Gift className="w-4 h-4 text-primary-foreground" />
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import { BookOpen, Shield, Trophy } from 'lucide-react';
 import { SectionCarousel } from '@/components/ui/SectionCarousel';
+import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/ui/scroll-animation';
+
 const AboutZapfy = () => {
   const sections = [{
     icon: <BookOpen className="w-8 h-8 text-white" />,
@@ -14,7 +16,9 @@ const AboutZapfy = () => {
     title: 'Resultados Reais',
     description: 'Em 30 dias, você verá mudanças: crianças fazendo perguntas inteligentes sobre dinheiro e tomando decisões mais conscientes.'
   }];
-  return <section className="section-padding bg-muted/30 relative overflow-hidden">
+  
+  return (
+    <section className="section-padding bg-muted/30 relative overflow-hidden">
       {/* Subtle Aurora elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 blur-3xl" />
       <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-2xl animate-pulse" />
@@ -22,43 +26,55 @@ const AboutZapfy = () => {
       
       <div className="container-zapfy relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-              Criado por{' '}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Pais, para Pais</span>
-            </h2>
+          <StaggerContainer className="space-y-6">
+            <StaggerItem>
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
+                Criado por{' '}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Pais, para Pais</span>
+              </h2>
+            </StaggerItem>
             
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Sabemos que você quer ensinar seu filho sobre dinheiro, mas não sabe por onde começar. 
-              A Zapfy nasceu dessa mesma dor: pais que queriam preparar seus filhos para o futuro financeiro, 
-              mas encontravam apenas conteúdo chato e inacessível. Criamos uma solução simples, divertida 
-              e que realmente funciona — construída ouvindo centenas de famílias reais como a sua.
-            </p>
-          </div>
+            <StaggerItem>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                Sabemos que você quer ensinar seu filho sobre dinheiro, mas não sabe por onde começar. 
+                A Zapfy nasceu dessa mesma dor: pais que queriam preparar seus filhos para o futuro financeiro, 
+                mas encontravam apenas conteúdo chato e inacessível. Criamos uma solução simples, divertida 
+                e que realmente funciona — construída ouvindo centenas de famílias reais como a sua.
+              </p>
+            </StaggerItem>
+          </StaggerContainer>
           
-          <SectionCarousel items={sections} />
+          <ScrollAnimation animation="scale" delay={0.2}>
+            <SectionCarousel items={sections} />
+          </ScrollAnimation>
           
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-              <div className="w-3 h-3 bg-secondary rounded-full animate-pulse delay-100" />
-              <div className="w-3 h-3 bg-accent rounded-full animate-pulse delay-200" />
+          <ScrollAnimation animation="fadeUp" delay={0.3}>
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                <div className="w-3 h-3 bg-secondary rounded-full animate-pulse delay-100" />
+                <div className="w-3 h-3 bg-accent rounded-full animate-pulse delay-200" />
+              </div>
+              <p className="text-lg font-montserrat font-semibold text-center mb-2">
+                "Finalmente encontrei algo que meu filho QUER fazer!"
+              </p>
+              <p className="text-sm text-muted-foreground text-center">
+                — Mariana, mãe de Lucas (9 anos) e Sofia (12 anos)
+              </p>
             </div>
-            <p className="text-lg font-montserrat font-semibold text-center mb-2">
-              "Finalmente encontrei algo que meu filho QUER fazer!"
-            </p>
-            <p className="text-sm text-muted-foreground text-center">
-              — Mariana, mãe de Lucas (9 anos) e Sofia (12 anos)
-            </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="text-center">
-            <button className="btn-outline">
-              Veja Como Funciona
-            </button>
-          </div>
+          <ScrollAnimation animation="fadeUp" delay={0.4}>
+            <div className="text-center">
+              <button className="btn-outline">
+                Veja Como Funciona
+              </button>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AboutZapfy;
