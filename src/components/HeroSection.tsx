@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AccessFormModal from '@/components/AccessFormModal';
 import { AuroraBackground } from '@/components/ui/aurora-background';
+import { ParticlesBackground } from '@/components/ui/particles-background';
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,6 +30,9 @@ const HeroSection = () => {
   return (
     <div ref={containerRef} className="relative">
       <AuroraBackground className="min-h-screen relative overflow-hidden">
+        {/* Subtle particles effect */}
+        <ParticlesBackground particleCount={25} className="z-10" />
+        
         <div className="container-zapfy section-padding relative z-20">
           <motion.div 
             className="flex flex-col items-center text-center max-w-4xl mx-auto"
