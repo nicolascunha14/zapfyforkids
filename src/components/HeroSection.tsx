@@ -1,13 +1,14 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import AccessFormModal from '@/components/AccessFormModal';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { ParticlesBackground } from '@/components/ui/particles-background';
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -24,11 +25,51 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleAccessClick = () => {
-    navigate('/waitlist');
+    setIsNavigating(true);
+    // Wait for animation to complete before navigating
+    setTimeout(() => {
+      navigate('/waitlist');
+    }, 600);
   };
 
   return (
     <div ref={containerRef} className="relative">
+      {/* Transition overlay */}
+      <AnimatePresence>
+        {isNavigating && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+            initial={{ clipPath: "circle(0% at 50% 50%)" }}
+            animate={{ clipPath: "circle(150% at 50% 50%)" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <motion.div
+              className="flex flex-col items-center gap-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+            >
+              <motion.div
+                className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles className="w-8 h-8 text-white" />
+              </motion.div>
+              <motion.p
+                className="text-lg font-montserrat font-medium text-foreground"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Preparando seu acesso...
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <AuroraBackground className="min-h-screen relative overflow-hidden">
         {/* Subtle particles effect */}
         <ParticlesBackground particleCount={50} className="z-10" />
@@ -88,10 +129,16 @@ const HeroSection = () => {
                 transition={{ delay: 0.8, duration: 0.6 }}
                 style={{ y: buttonY }}
               >
-                <button onClick={handleAccessClick} className="btn-hero group flex items-center justify-center">
+                <motion.button 
+                  onClick={handleAccessClick} 
+                  className="btn-hero group flex items-center justify-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={isNavigating}
+                >
                   Quero Ajudar Meu Filho a Aprender Brincando
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </motion.button>
               </motion.div>
               
               <motion.div 
