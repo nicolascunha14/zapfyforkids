@@ -2,6 +2,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutZapfy from '@/components/AboutZapfy';
 import BenefitsForParents from '@/components/BenefitsForParents';
 import BenefitsForKids from '@/components/BenefitsForKids';
+import DemoSection from '@/components/DemoSection';
 import SchoolSection from '@/components/SchoolSection';
 import CtaSection from '@/components/CtaSection';
 import DownloadGuideSection from '@/components/DownloadGuideSection';
@@ -24,6 +25,7 @@ const Index = () => {
       <section id="benefits-kids">
         <BenefitsForKids />
       </section>
+      <DemoSection />
       <section id="schools">
         <SchoolSection />
       </section>
