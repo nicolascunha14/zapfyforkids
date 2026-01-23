@@ -12,11 +12,11 @@ import {
   DoubleSide,
 } from "three";
 import type { ReactElement } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Users, Clock, Gift, Loader2, ArrowLeft } from "lucide-react";
+import { Sparkles, Users, Clock, Gift, Loader2, ArrowLeft, Home } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
@@ -31,6 +31,7 @@ export function ZapfyWaitlist(): ReactElement {
   const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isNavigatingBack, setIsNavigatingBack] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState({
@@ -286,6 +287,13 @@ export function ZapfyWaitlist(): ReactElement {
 
   const features = ["Educação", "Gamificação", "Beta", "Lançamento", "Updates"];
 
+  const handleBackClick = () => {
+    setIsNavigatingBack(true);
+    setTimeout(() => {
+      navigate("/");
+    }, 600);
+  };
+
   return (
     <motion.main 
       className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 w-full"
@@ -293,6 +301,42 @@ export function ZapfyWaitlist(): ReactElement {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
+      {/* Transition overlay for back navigation */}
+      <AnimatePresence>
+        {isNavigatingBack && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+            initial={{ clipPath: "circle(0% at 50% 50%)" }}
+            animate={{ clipPath: "circle(150% at 50% 50%)" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          >
+            <motion.div
+              className="flex flex-col items-center gap-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+            >
+              <motion.div
+                className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              >
+                <Home className="w-8 h-8 text-white" />
+              </motion.div>
+              <motion.p
+                className="text-lg font-montserrat font-medium text-foreground"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Voltando...
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Three.js Background */}
       <motion.div 
         ref={mountRef} 
@@ -317,7 +361,8 @@ export function ZapfyWaitlist(): ReactElement {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => navigate("/")}
+                onClick={handleBackClick}
+                disabled={isNavigatingBack}
                 className="bg-background/40 backdrop-blur-md border border-border/20 hover:bg-background/60 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-full px-4 py-2"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
