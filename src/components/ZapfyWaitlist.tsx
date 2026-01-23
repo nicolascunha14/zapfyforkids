@@ -12,6 +12,7 @@ import {
   DoubleSide,
 } from "three";
 import type { ReactElement } from "react";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -286,14 +287,31 @@ export function ZapfyWaitlist(): ReactElement {
   const features = ["Educação", "Gamificação", "Beta", "Lançamento", "Updates"];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 w-full">
+    <motion.main 
+      className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-background/80 to-muted/20 w-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       {/* Three.js Background */}
-      <div ref={mountRef} className="fixed inset-0 w-full h-full" style={{ zIndex: 0 }} />
+      <motion.div 
+        ref={mountRef} 
+        className="fixed inset-0 w-full h-full" 
+        style={{ zIndex: 0 }}
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
 
       {/* Content Layer */}
       <div className="relative z-10 min-h-screen">
         {/* Back Button */}
-        <div className="absolute top-8 left-8 z-20">
+        <motion.div 
+          className="absolute top-8 left-8 z-20"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
           <Button
             variant="ghost"
             size="sm"
@@ -303,15 +321,23 @@ export function ZapfyWaitlist(): ReactElement {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar
           </Button>
-        </div>
+        </motion.div>
         {/* Top Navigation */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+        <motion.div 
+          className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
           <div className="bg-background/40 backdrop-blur-md border border-border/20 rounded-full px-6 py-3">
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-4">
                 {features.map((feature, index) => (
-                  <button
+                  <motion.button
                     key={feature}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
                     className={`text-sm px-3 py-1 rounded-full transition-colors font-montserrat ${
                       index === 2
                         ? "bg-primary/20 text-primary border border-primary/30"
@@ -319,43 +345,79 @@ export function ZapfyWaitlist(): ReactElement {
                     }`}
                   >
                     {feature}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Waitlist Card */}
         <div className="flex items-center justify-center min-h-screen px-4">
-          <div className="relative">
-            <div className="relative backdrop-blur-xl bg-background/60 border border-border/30 rounded-3xl p-8 w-[420px] shadow-2xl">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6, type: "spring", stiffness: 100 }}
+          >
+            <motion.div 
+              className="relative backdrop-blur-xl bg-background/60 border border-border/30 rounded-3xl p-8 w-[420px] shadow-2xl"
+              initial={{ boxShadow: "0 0 0 rgba(0,0,0,0)" }}
+              animate={{ boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
 
               <div className="relative z-10">
                 {!isSubmitted ? (
                   <>
-                    <div className="mb-8 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-4">
+                    <motion.div 
+                      className="mb-8 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                    >
+                      <motion.div 
+                        className="flex items-center justify-center gap-2 mb-4"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5, duration: 0.4 }}
+                      >
                         <Sparkles className="w-6 h-6 text-primary" />
                         <span className="text-sm font-montserrat font-semibold text-primary uppercase tracking-wide">
                           Lista de Espera
                         </span>
-                      </div>
-                      <h1 className="text-4xl font-montserrat font-bold text-foreground mb-4 tracking-wide">
+                      </motion.div>
+                      <motion.h1 
+                        className="text-4xl font-montserrat font-bold text-foreground mb-4 tracking-wide"
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.55, duration: 0.5 }}
+                      >
                         Entre na{' '}
                         <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                           Zapfy
                         </span>
-                      </h1>
-                      <p className="text-muted-foreground text-base leading-relaxed">
+                      </motion.h1>
+                      <motion.p 
+                        className="text-muted-foreground text-base leading-relaxed"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.5 }}
+                      >
                         Seja um dos primeiros a transformar a relação do seu filho com o dinheiro.
                         <br />
                         Educação financeira que funciona: <span className="text-primary font-semibold">gamificada, segura e eficaz</span>.
-                      </p>
-                    </div>
+                      </motion.p>
+                    </motion.div>
 
-                     <form onSubmit={handleSubmit} className="mb-6">
+                     <motion.form 
+                       onSubmit={handleSubmit} 
+                       className="mb-6"
+                       initial={{ opacity: 0, y: 15 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: 0.65, duration: 0.5 }}
+                     >
                        <div className="space-y-3">
                          <Input
                            type="text"
@@ -390,9 +452,14 @@ export function ZapfyWaitlist(): ReactElement {
                            </Button>
                          </div>
                        </div>
-                     </form>
+                     </motion.form>
 
-                    <div className="flex items-center justify-center gap-3 mb-6">
+                    <motion.div 
+                      className="flex items-center justify-center gap-3 mb-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7, duration: 0.5 }}
+                    >
                       <div className="flex -space-x-2">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-background/20 flex items-center justify-center text-white text-xs font-medium">
                           M
@@ -407,9 +474,14 @@ export function ZapfyWaitlist(): ReactElement {
                       <span className="text-muted-foreground text-sm font-montserrat">
                         <span className="text-primary font-semibold">+500</span> famílias já garantiram acesso antecipado
                       </span>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex items-center justify-center gap-6 text-center">
+                    <motion.div 
+                      className="flex items-center justify-center gap-6 text-center"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.75, duration: 0.5 }}
+                    >
                       <div>
                         <div className="text-2xl font-montserrat font-bold text-foreground">{timeLeft.days}</div>
                         <div className="text-xs text-muted-foreground uppercase tracking-wide font-montserrat">dias</div>
@@ -429,7 +501,7 @@ export function ZapfyWaitlist(): ReactElement {
                         <div className="text-2xl font-montserrat font-bold text-foreground">{timeLeft.seconds}</div>
                         <div className="text-xs text-muted-foreground uppercase tracking-wide font-montserrat">seg</div>
                       </div>
-                    </div>
+                    </motion.div>
                   </>
                 ) : (
                   <div className="text-center py-4">
@@ -454,12 +526,17 @@ export function ZapfyWaitlist(): ReactElement {
               </div>
 
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-transparent via-primary/[0.02] to-secondary/[0.05] pointer-events-none" />
-            </div>
+            </motion.div>
 
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 to-secondary/10 blur-xl scale-110 -z-10" />
-          </div>
+            <motion.div 
+              className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 to-secondary/10 blur-xl scale-110 -z-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1.1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+          </motion.div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }
