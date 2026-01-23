@@ -45,6 +45,9 @@ export function ZapfyWaitlist(): ReactElement {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // Save reference to container at effect start
+    const container = mountRef.current;
+
     // Scene setup
     const scene = new Scene();
     sceneRef.current = scene;
@@ -59,7 +62,7 @@ export function ZapfyWaitlist(): ReactElement {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
-    mountRef.current.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     // Create curved light geometry - Zapfy colors
     const curve = new QuadraticBezierCurve3(
@@ -207,8 +210,9 @@ export function ZapfyWaitlist(): ReactElement {
         cancelAnimationFrame(animationIdRef.current);
       }
 
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      // Safely remove renderer from container
+      if (renderer.domElement && renderer.domElement.parentNode === container) {
+        container.removeChild(renderer.domElement);
       }
 
       renderer.dispose();
