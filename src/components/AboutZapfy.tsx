@@ -3,6 +3,12 @@ import { SectionCarousel } from '@/components/ui/SectionCarousel';
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/ui/scroll-animation';
 
 const AboutZapfy = () => {
+  const scrollToDemo = () => {
+    const demoSection = document.getElementById('demo');
+    if (demoSection) {
+      demoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const sections = [{
     icon: <BookOpen className="w-8 h-8 text-white" />,
     title: 'Educação Prática',
@@ -66,7 +72,7 @@ const AboutZapfy = () => {
           
           <ScrollAnimation animation="fadeUp" delay={0.4}>
             <div className="text-center">
-              <button className="btn-outline">
+              <button onClick={scrollToDemo} className="btn-outline">
                 Veja Como Funciona
               </button>
             </div>

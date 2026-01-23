@@ -1,7 +1,10 @@
 import { Play, Star, Users, Award } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import appMockupImage from '@/assets/zapfy-app-mockup.jpg';
 
 const DemoSection = () => {
+  const navigate = useNavigate();
+
   const stats = [
     { icon: Users, value: '500+', label: 'Famílias Ativas' },
     { icon: Star, value: '4.9', label: 'Avaliação Média' },
@@ -9,7 +12,7 @@ const DemoSection = () => {
   ];
 
   return (
-    <section className="section-padding">
+    <section id="demo" className="section-padding">
       <div className="container-zapfy">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-6 mb-16">
@@ -114,9 +117,12 @@ const DemoSection = () => {
                 </div>
               </div>
               
-              <button className="btn-secondary w-full sm:w-auto">
+              <button 
+                onClick={() => navigate('/waitlist')} 
+                className="btn-secondary w-full sm:w-auto"
+              >
                 <Play className="w-5 h-5 mr-2" />
-                Assistir Demonstração
+                Quero Experimentar
               </button>
             </div>
           </div>
