@@ -1,8 +1,10 @@
 import { BarChart3, Heart, Smartphone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { SectionCarousel } from '@/components/ui/SectionCarousel';
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/ui/scroll-animation';
 
 const BenefitsForParents = () => {
+  const navigate = useNavigate();
   const benefits = [{
     icon: <Heart className="w-7 h-7 text-white" />,
     title: 'Momentos em Família',
@@ -66,7 +68,7 @@ const BenefitsForParents = () => {
             
             <ScrollAnimation animation="fadeUp" delay={0.3}>
               <div className="text-center">
-                <button className="btn-hero">
+                <button onClick={() => navigate('/waitlist')} className="btn-hero">
                   Experimente Ensinar Junto
                 </button>
               </div>
