@@ -322,32 +322,30 @@ export function ZapfyWaitlist(): ReactElement {
             Voltar
           </Button>
         </motion.div>
-        {/* Top Navigation */}
+        {/* Top Navigation - hidden on mobile for cleaner look */}
         <motion.div 
-          className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="hidden md:block absolute top-8 left-1/2 transform -translate-x-1/2 z-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
           <div className="bg-background/40 backdrop-blur-md border border-border/20 rounded-full px-6 py-3">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-4">
-                {features.map((feature, index) => (
-                  <motion.button
-                    key={feature}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
-                    className={`text-sm px-3 py-1 rounded-full transition-colors font-montserrat ${
-                      index === 2
-                        ? "bg-primary/20 text-primary border border-primary/30"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {feature}
-                  </motion.button>
-                ))}
-              </div>
+            <div className="flex items-center justify-center gap-4">
+              {features.map((feature, index) => (
+                <motion.button
+                  key={feature}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
+                  className={`text-sm px-3 py-1 rounded-full transition-colors font-montserrat ${
+                    index === 2
+                      ? "bg-primary/20 text-primary border border-primary/30"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {feature}
+                </motion.button>
+              ))}
             </div>
           </div>
         </motion.div>
