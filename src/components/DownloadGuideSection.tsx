@@ -25,21 +25,29 @@ const DownloadGuideSection = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-background to-secondary/20">
-      <div className="container mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-          Pronto para criar aprendizados e memórias que vão além da mesada?
+    <section className="py-16 px-4 bg-gradient-to-b from-background to-primary/10">
+      <div className="container mx-auto max-w-3xl text-center space-y-6">
+        <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-foreground">
+          Quer Começar{' '}
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            HOJE?
+          </span>
         </h2>
-        <p className="text-lg md:text-xl mb-8 text-muted-foreground">
-          Baixe agora nosso Guia Rápido com 5 Desafios e comece hoje mesmo a ensinar — brincando! ⬇️
+        <p className="text-xl md:text-2xl font-montserrat font-semibold text-foreground">
+          Baixe Nosso Guia com 5 Missões Práticas
+        </p>
+        <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          Missões de 5 minutos que você faz com seu filho HOJE.<br />
+          Enquanto o app fica pronto, você já começa a ensinar.
         </p>
         <Button
           onClick={handleDownload}
           size="lg"
-          className="text-lg px-8 py-6 gap-3"
+          className="text-lg px-8 py-6 gap-3 btn-hero"
         >
           <Download className="w-5 h-5" />
-          Baixar grátis
+          Baixar Guia Grátis (PDF)
+          <span className="ml-1">→</span>
         </Button>
       </div>
       <DownloadConfirmationModal 
