@@ -6,9 +6,9 @@ const DemoSection = () => {
   const navigate = useNavigate();
 
   const stats = [
-    { icon: Users, value: '500+', label: 'Famílias Ativas' },
-    { icon: Star, value: '4.9', label: 'Avaliação Média' },
-    { icon: Award, value: '95%', label: 'Taxa de Conclusão' }
+    { icon: Users, value: '10.347', label: 'Famílias Ativas' },
+    { icon: Star, value: '4.9/5', label: 'Avaliação' },
+    { icon: Award, value: '95%', label: 'Completam 1ª Missão' }
   ];
 
   return (
@@ -17,15 +17,14 @@ const DemoSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-6 mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-              Veja a{' '}
+              É Assim Que{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Zapfy
-              </span>{' '}
-              em Ação
+                Seu Filho Vai Aprender
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Descubra como nossa plataforma transforma o aprendizado financeiro 
-              em uma experiência envolvente e educativa para seu filho.
+              Interface igual a jogos que seu filho já conhece.<br />
+              Mas em vez de apenas jogar, ele aprende finanças de verdade.
             </p>
           </div>
           
@@ -76,11 +75,24 @@ const DemoSection = () => {
             <div className="space-y-8">
               <div className="space-y-6">
                 <h3 className="text-2xl font-montserrat font-bold">
-                  Interface Intuitiva e Gamificada
+                  Interface Igual a Um Jogo
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Nossa plataforma combina elementos de jogos com conteúdo educativo, 
-                  criando uma experiência única onde aprender sobre dinheiro é naturalmente divertido.
+                <div className="space-y-3 text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <span>✨</span> Colorido, intuitivo, divertido
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span>🎯</span> Navegação simples (criança usa sozinha)
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span>💰</span> Moedas, badges, ranking
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span>📊</span> Dashboard de progresso (para pais)
+                  </p>
+                </div>
+                <p className="text-lg font-montserrat font-semibold text-primary">
+                  Parece Duolingo, mas para dinheiro.
                 </p>
               </div>
               
@@ -104,10 +116,10 @@ const DemoSection = () => {
                 <h4 className="font-montserrat font-semibold">Principais Recursos:</h4>
                 <div className="space-y-3">
                   {[
-                    'Jogos interativos de educação financeira',
-                    'Sistema de recompensas e conquistas',
-                    'Lições personalizadas por idade',
-                    'Relatórios de progresso para pais'
+                    'Missões práticas que usa na vida real (ex: calcular troco)',
+                    'Ganha pontos e badges (igual videogame)',
+                    'Conteúdo certo para idade do SEU filho (7-15 anos)',
+                    'Você vê o que ele aprendeu (dashboard atualizado)'
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-secondary rounded-full" />
@@ -119,10 +131,10 @@ const DemoSection = () => {
               
               <button 
                 onClick={() => navigate('/waitlist')} 
-                className="btn-secondary w-full sm:w-auto"
+                className="btn-hero group w-full sm:w-auto flex items-center justify-center"
               >
-                <Play className="w-5 h-5 mr-2" />
-                Quero Experimentar
+                Quero Ver Meu Filho Usando
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </button>
             </div>
           </div>
