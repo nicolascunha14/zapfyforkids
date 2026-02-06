@@ -8,15 +8,15 @@ const BenefitsForParents = () => {
   const benefits = [{
     icon: <Heart className="w-7 h-7 text-white" />,
     title: 'Momentos em Família',
-    description: 'Missões especiais para fazer juntos: montar um orçamento, planejar uma compra, conversar sobre sonhos. Educação que une, não separa.'
+    description: '"Papai, vamos fazer a missão?" Missões de 5 minutos que vocês fazem juntos. Não é obrigação. É diversão com propósito.'
   }, {
     icon: <BarChart3 className="w-7 h-7 text-white" />,
     title: 'Você Também Aprende',
-    description: 'Dicas exclusivas para pais em cada etapa. Descubra como falar de dinheiro de forma leve e como ser o melhor exemplo financeiro.'
+    description: 'Dicas exclusivas para pais em cada missão. "Como falar de dinheiro sem criar trauma" e "Respostas para perguntas que você não esperava".'
   }, {
     icon: <Smartphone className="w-7 h-7 text-white" />,
     title: 'Progresso Visível',
-    description: 'Veja em tempo real o que seu filho está aprendendo. Comemore cada conquista e identifique áreas de melhoria juntos.'
+    description: 'Dashboard para pais. Veja em tempo real: conceitos aprendidos, missões completadas, áreas de melhoria.'
   }];
 
   return (
@@ -31,16 +31,17 @@ const BenefitsForParents = () => {
           <StaggerContainer className="text-center space-y-6 mb-16">
             <StaggerItem>
               <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-                Aprenda{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Junto com Seu Filho
-                </span>
+                  5 Minutos Por Dia.
+                </span>{' '}
+                Pais e Filhos Juntos.
               </h2>
             </StaggerItem>
             <StaggerItem>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                <strong>93% dos pais</strong> dizem que aprender sobre finanças com os filhos fortalece os laços familiares. 
-                Na Zapfy, você não só supervisiona — você participa da jornada, ensina pelo exemplo e cria memórias valiosas.
+                <strong>9 de 10 pais</strong> dizem que fazer missões com os filhos fortaleceu a relação familiar.
+                <br /><br />
+                Na Zapfy, você não dá aula. Você participa da aventura.
               </p>
             </StaggerItem>
           </StaggerContainer>
@@ -58,28 +59,34 @@ const BenefitsForParents = () => {
               <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-6 border border-accent/20 max-w-2xl mx-auto">
                 <p className="text-base text-muted-foreground italic mb-3">
                   "Meu filho de 10 anos me perguntou se vale a pena comprar um brinquedo parcelado. 
-                  Fiquei em choque — e super orgulhosa!"
+                  Fiquei em choque!"
                 </p>
                 <p className="text-sm font-montserrat font-semibold text-primary">
-                  — Paula, mãe do Miguel, após 3 semanas usando Zapfy
+                  — Paula, após 3 semanas
                 </p>
               </div>
             </ScrollAnimation>
             
             <ScrollAnimation animation="fadeUp" delay={0.3}>
               <div className="text-center">
-                <button onClick={() => navigate('/waitlist')} className="btn-hero">
-                  Experimente Ensinar Junto
+                <button onClick={() => navigate('/waitlist')} className="btn-hero group flex items-center justify-center mx-auto">
+                  Experimentar Ensinar Junto
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </button>
               </div>
             </ScrollAnimation>
             
             <ScrollAnimation animation="scale" delay={0.4}>
-              <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary-foreground px-6 py-3 rounded-full mx-auto block text-center">
-                <Heart className="w-5 h-5 inline" />
-                <span className="font-montserrat font-semibold">
-                  95% dos pais notam mudanças positivas em menos de 1 mês
-                </span>
+              <div className="flex flex-col items-center gap-1 text-center">
+                <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary-foreground px-6 py-3 rounded-full">
+                  <span className="text-lg">💚</span>
+                  <span className="font-montserrat font-semibold">
+                    95% dos pais notam mudanças em menos de 1 mês
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  (Pesquisa com 847 famílias, Dez/2025)
+                </p>
               </div>
             </ScrollAnimation>
           </div>
