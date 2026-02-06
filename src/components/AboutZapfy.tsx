@@ -63,7 +63,7 @@ const AboutZapfy = () => {
               </div>
               <p className="text-lg font-montserrat font-semibold text-center mb-2 italic">
                 "Meu filho de 9 anos me perguntou se o brinquedo 'valia mesmo R$80'. 
-                Chorei. Nunca pensei que seria TÃO rápido."
+                Nunca pensei que seria TÃO rápido."
               </p>
               <p className="text-sm text-muted-foreground text-center">
                 — Mariana, mãe do Lucas (9 anos)
