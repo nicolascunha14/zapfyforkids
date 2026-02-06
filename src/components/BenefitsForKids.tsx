@@ -8,17 +8,17 @@ const BenefitsForKids = () => {
     {
       icon: <Gamepad2 className="w-6 h-6 text-white" />,
       title: 'É Como um Videogame!',
-      description: 'Missões empolgantes, desafios progressivos e personagens cativantes. Seu filho nem vai perceber que está aprendendo.'
+      description: '🎮 Missões progressivas (do fácil ao desafiante) ⚔️ Desafios com tempo limite 🏆 Conquistas desbloqueáveis. Exemplo: "Economize R$50 em 30 dias"'
     },
     {
       icon: <Gift className="w-6 h-6 text-white" />,
       title: 'Conquistas e Badges',
-      description: 'Cada avanço é celebrado com recompensas virtuais, evolução do personagem e troféus especiais. Motivação garantida!'
+      description: '🥇 Cada missão completada = pontos + badge 🔥 Sequência de dias (streak): "7 dias seguidos!" ⭐ Badges especiais: "Investidor Junior". Motivação natural. Sem forçar.'
     },
     {
       icon: <Clock className="w-6 h-6 text-white" />,
       title: 'Aprende no Seu Ritmo',
-      description: 'Micro-lições de 5-10 minutos que respeitam a atenção das crianças. Aprendizado leve, sem pressão, só diversão.'
+      description: '⏱️ Cada missão = 5 minutos 📅 Faz quando quiser (sem pressão) 🎯 3 níveis de dificuldade (7-9, 10-12, 13-15 anos). Aprende brincando. Sem perceber.'
     }
   ];
 
@@ -36,17 +36,19 @@ const BenefitsForKids = () => {
             <StaggerContainer className="space-y-6 text-center">
               <StaggerItem>
                 <h2 className="text-2xl md:text-3xl font-montserrat font-bold px-4">
-                  Aprender Sobre Dinheiro{' '}
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    Nunca Foi Tão Divertido!
-                  </span>
+                    Parece Jogo.
+                  </span>{' '}
+                  É Educação Financeira de Verdade.
                 </h2>
               </StaggerItem>
               <StaggerItem>
                 <p className="text-base text-muted-foreground leading-relaxed px-4">
-                  Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
-                  coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
-                  que vão usar pra vida toda. É viciante, é educativo, é transformador.
+                  Missões como: "Calcule o troco na padaria"<br />
+                  Badges como: "Mestre do Orçamento"<br />
+                  Ranking: Compete com amigos (quem economiza mais?)<br /><br />
+                  É tão divertido que seu filho pede para fazer mais.<br />
+                  E aprende finanças de verdade enquanto joga.
                 </p>
               </StaggerItem>
             </StaggerContainer>
@@ -58,19 +60,17 @@ const BenefitsForKids = () => {
             <ScrollAnimation animation="fadeUp" delay={0.2} className="mx-4">
               <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-4 border border-primary/20">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-                    ))}
-                  </div>
+                  <span className="text-lg">📊</span>
                   <span className="text-sm font-montserrat font-semibold text-primary">
-                    Engajamento Alto
+                    Crianças ficam 15 minutos por dia no Zapfy
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Crianças passam <strong>15 minutos diários</strong> aprendendo — 
-                  e pedem para fazer mais! Esse é o poder da gamificação bem feita.
-                </p>
+                <div className="text-sm text-muted-foreground space-y-2">
+                  <p className="font-medium">Compare:</p>
+                  <p>TikTok = 52 minutos/dia de entretenimento</p>
+                  <p><strong>Zapfy = 15 minutos/dia de aprendizado real</strong></p>
+                  <p className="mt-3 font-semibold text-primary">E ELE pede para fazer mais.</p>
+                </div>
               </div>
             </ScrollAnimation>
           </div>
@@ -81,17 +81,19 @@ const BenefitsForKids = () => {
               <StaggerContainer className="space-y-6">
                 <StaggerItem>
                   <h2 className="text-3xl md:text-4xl font-montserrat font-bold">
-                    Aprender Sobre Dinheiro{' '}
                     <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      Nunca Foi Tão Divertido!
-                    </span>
+                      Parece Jogo.
+                    </span>{' '}
+                    É Educação Financeira de Verdade.
                   </h2>
                 </StaggerItem>
                 <StaggerItem>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Educação chata? Nem pensar! Com a Zapfy, seu filho desbrava missões, 
-                    coleciona conquistas e evolui seu personagem — enquanto aprende conceitos 
-                    que vão usar pra vida toda. É viciante, é educativo, é transformador.
+                    Missões como: "Calcule o troco na padaria"<br />
+                    Badges como: "Mestre do Orçamento"<br />
+                    Ranking: Compete com amigos (quem economiza mais?)<br /><br />
+                    É tão divertido que seu filho pede para fazer mais.<br />
+                    E aprende finanças de verdade enquanto joga.
                   </p>
                 </StaggerItem>
               </StaggerContainer>
@@ -103,19 +105,17 @@ const BenefitsForKids = () => {
               <ScrollAnimation animation="fadeUp" delay={0.2}>
                 <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 border border-primary/20 mx-auto max-w-md">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-                      ))}
-                    </div>
+                    <span className="text-lg">📊</span>
                     <span className="text-sm font-montserrat font-semibold text-primary">
-                      Engajamento Alto
+                      Crianças ficam 15 minutos por dia no Zapfy
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Crianças passam <strong>15 minutos diários</strong> aprendendo — 
-                    e pedem para fazer mais! Esse é o poder da gamificação bem feita.
-                  </p>
+                  <div className="text-sm text-muted-foreground space-y-2">
+                    <p className="font-medium">Compare:</p>
+                    <p>TikTok = 52 minutos/dia de entretenimento</p>
+                    <p><strong>Zapfy = 15 minutos/dia de aprendizado real</strong></p>
+                    <p className="mt-3 font-semibold text-primary">E ELE pede para fazer mais.</p>
+                  </div>
                 </div>
               </ScrollAnimation>
             </div>
