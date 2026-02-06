@@ -3,7 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 export type AnalyticsEventType = 
   | 'download_guide'
   | 'download_modal_to_waitlist'
-  | 'download_modal_continue';
+  | 'download_modal_continue'
+  | 'download_modal_waitlist_signup';
 
 export const trackEvent = async (
   eventType: AnalyticsEventType,
